@@ -5,6 +5,7 @@ go 1.19
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/gofiber/fiber/v2 v2.44.0 // indirect
+	github.com/gofiber/template v1.8.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
@@ -27,5 +28,5 @@ require (
 	golang.org/x/sys v0.7.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
 	gorm.io/driver/postgres v1.5.0 // indirect
-	gorm.io/gorm v1.24.7-0.20230306060331-85eaf9eeda11 // indirect
+	gorm.io/gorm v1.25.0 // indirect
 )
