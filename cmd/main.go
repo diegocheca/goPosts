@@ -4,6 +4,8 @@ package main
 import (
 
     "github.com/gofiber/fiber/v2"
+	"github.com/diegocheca/goPosts.git/handlers"
+
 	"github.com/diegocheca/goPosts.git/database"
 	"github.com/gofiber/template/html"
 )
@@ -23,6 +25,8 @@ func main() {
 	setupRoutes(app)
 
 	app.Static("/", "./public")
+
+	app.Use(handlers.NotFound)
 	
     app.Listen(":3000")
 }
