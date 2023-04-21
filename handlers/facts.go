@@ -15,8 +15,8 @@ func ListFacts(c *fiber.Ctx) error {
 
     //return c.Status(200).JSON(facts)
     return c.Render("index", fiber.Map{
-        "Title":  "Div Rhino Trivia Time",
-        "Subtitle": "Facts for funtimes with friends!",
+        "Title":  "Blog System",
+        "Subtitle": "Amazing Posts everyday!",
         "Facts": facts,
     })
 }
@@ -25,8 +25,8 @@ func ListFacts(c *fiber.Ctx) error {
 // Create new Fact View handler
 func NewFactView(c *fiber.Ctx) error {
     return c.Render("new", fiber.Map{
-        "Title":    "New Fact",
-        "Subtitle": "Add a cool fact!",
+        "Title":    "New Post",
+        "Subtitle": "Add a cool Post!",
     })
 }
 
@@ -58,7 +58,7 @@ func ShowFact(c *fiber.Ctx) error {
     }
 
     return c.Render("show", fiber.Map{
-        "Title": "Single Fact",
+        "Title": "Single Post",
         "Fact": fact,
     })
 } 
@@ -80,8 +80,8 @@ func EditFact(c *fiber.Ctx) error {
     }
 
     return c.Render("edit", fiber.Map{
-        "Title":    "Edit Fact",
-        "Subtitle": "Edit your interesting fact",
+        "Title":    "Edit Post",
+        "Subtitle": "Edit your interesting Post",
         "Fact":     fact,
     })
 }
