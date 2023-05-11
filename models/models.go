@@ -31,3 +31,41 @@ type Comment struct {
     Likes   int `json:"likes" gorm:"number;not null;default:null`
     Image string `json:"image" gorm:"text;default:null`
 }
+
+
+
+/*
+class NotificationTypes extends Enum {
+    public const COMMENT_RECEIVED = 1;
+    public const POST_UNLOCKED = 2;
+    public const PAYMENT_RECEIVED = 3;
+    public const LIKE_RECEIVED = 4;
+    public const TIP_POST_RECEIVED = 5;
+    public const MESSAGE_UNLOCKED = 6;
+    public const SUBSCRIPTION = 7;
+    public const MEDIA_APPROVED = 8;
+}
+
+*/
+type Notification struct {
+    gorm.Model
+    UserID int `json:"user_id" gorm:"number;default:null`
+    UserIdFrom int `json:"user_id_form" gorm:"number;not null;default:null`
+    Readed bool `json:"readed" gorm:"bool;default:false`
+    Content   string `json:"content" gorm:"text;not null`
+    NotificationType   int `json:"type" gorm:"number;not null;default:1`
+    ExtraData string `json:"extra_data" gorm:"text;default:null`
+    Channel string `json:"channel" gorm:"text;default:email`
+}
+
+type Log struct {
+    gorm.Model
+    UserID int `json:"user_id" gorm:"number;default:null`
+    Controller   string `json:"ccontroller" gorm:"text;not null`
+    Function   string `json:"function" gorm:"text;not null`
+    Result   string `json:"result" gorm:"text;not null`
+    Time   string `json:"time" gorm:"text;not null`
+}
+
+
+

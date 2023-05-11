@@ -32,7 +32,7 @@ func setupRoutes(app *fiber.App) {
 
 
     //Comments
-    //app.Get("/comments", handlers.ListPosts)
+    app.Get("/comments", handlers.ListComments)
     //app.Get("/post/new", handlers.NewPostView)
     app.Post("/comment", handlers.CreateComment)
     app.Get("/comment/:id", handlers.ShowComment)
@@ -40,5 +40,15 @@ func setupRoutes(app *fiber.App) {
     app.Patch("/comment/:id", handlers.UpdateComment)
     app.Delete("/comment/:id", handlers.DeleteComment)
     app.Post("/comment/seeder", handlers.CommentSeeder)
+
+    app.Get("/sendingemail", handlers.SendEmail)
+    app.Get("/notification/seeder", handlers.NotificationSeeder)
+    app.Get("/notification/:id", handlers.ShowNotification)
+    app.Get("/notificationshowall", handlers.ShowAllNotification)
+    app.Post("/notification", handlers.CreateNotification)
+
+    app.Post("/log", handlers.CreateLog)
+    app.Get("/log/show-all", handlers.ShowAllLogs)
+    app.Get("/log/seeder", handlers.LogSeeder)
 
 }
