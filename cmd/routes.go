@@ -50,5 +50,10 @@ func setupRoutes(app *fiber.App) {
     app.Post("/log", handlers.CreateLog)
     app.Get("/log/show-all", handlers.ShowAllLogs)
     app.Get("/log/seeder", handlers.LogSeeder)
+    app.Get("/log/:id", handlers.ShowLog)
+    app.Get("/log-telegram", handlers.SendToTelegram)
+
+
+    
 
 }
