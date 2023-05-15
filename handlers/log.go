@@ -102,7 +102,7 @@ func SendToTelegram(c *fiber.Ctx) error{
     req := c.Request()
     res := c.Response()
     //os.Getenv("TELEGRAM_API")
-    //req.SetRequestURI("https://api.telegram.org/bot"+os.Getenv("TELEGRAM_API")+"/sendMessage?chat_id=1485456302&text=Hello%20Bro%20Im%20gofer22")
+    req.SetRequestURI("https://api.telegram.org/bot"+os.Getenv("TELEGRAM_API")+"/sendMessage?chat_id=1485456302&text=Hello%20Bro%20Im%20gofer22")
     return client.Do(req, res)
 
 }
