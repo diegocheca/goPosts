@@ -1,0 +1,43 @@
+[
+    {
+        "ID": 42 ,
+        "CreatedAt": "2023-05-24T15:58:23.633805Z" ,
+        "UpdatedAt": "2023-05-24T15:58:23.633805Z" ,
+        "DeletedAt": null ,
+        "user_id": 74 ,
+        "controller": "Path" ,
+        "function": "Destroy" ,
+        "result": "402" ,
+        "browser": "Netscape" ,
+        "os": "" ,
+        "app": "Mobile v1.3" ,
+        "ip": "143.133.237.37" ,
+        "table": "Monitoring" ,
+        "table_id": 633331 ,
+        "action": "Index" ,
+        "micro": "Routes" ,
+        "description": "LEaW1AFBj41Zmroz2AZscoKIAIS41iMc9tqOoxTjfdFsNHvLu5urkqGQF2zWlvgf9EMDGfzB8Aa2I 2UQnygGOmoRkLNhC9zIhoH" ,
+        "time": "2023-05-24 15:58:23.630987"
+    },
+    {
+        "ID": 43 ,
+        "CreatedAt": "2023-05-24T15:58:23.635164Z" ,
+        "UpdatedAt": "2023-05-24T15:58:23.635164Z" ,
+        "DeletedAt": null ,
+        "user_id": 241 ,
+        "controller": "Path" ,
+        "function": "Destroy" ,
+        "result": "402" ,
+        "browser": "Apple Safari" ,
+        "os": "Apple" ,
+        "app": "Mobile v1.1" ,
+        "ip": "211.45.156.103" ,
+        "table": "Blogs" ,
+        "table_id": 566362 ,
+        "action": "Show" ,
+        "micro": "Gateway" ,
+        "description": "tp3yKnXBbJwWIeEKmS98AUtv3iZju7rixY DZn1b1I3CD0Bwi5HiMrgNUhSgekSOMXGV9zwmYWCKib5KkGDvjT3PY etkB dTyIX" ,
+        "time": "2023-05-24 15:58:23.630987"
+    }
+]
+        
