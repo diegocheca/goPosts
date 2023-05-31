@@ -4,11 +4,14 @@ import (
 	"fmt"
 	"log"
 	"math/rand"
+	"net/smtp"
 	"os"
 
 	"github.com/diegocheca/goPosts.git/database"
 	"github.com/diegocheca/goPosts.git/models"
 	"github.com/gofiber/fiber/v2"
+
+	"github.com/jordan-wright/email"
 )
 
 /*
@@ -58,6 +61,35 @@ func ShowAllNotification(c *fiber.Ctx) error {
 	return c.Status(200).JSON(noty)
 }
 
+func SendEmail(c *fiber.Ctx) error {
+
+	m := struct {
+		Host string
+		Port int
+		User string
+		Pass string
+	}{
+		Host: `192.168.1.120`, // resolved to 127.0.0.1 in /etc/hosts
+		Port: 1025,
+		User: ``,
+		Pass: ``,
+	}
+	e := email.NewEmail()
+	e.From = `notifications@degustur.com`
+	e.To = []string{`diegochecarelli@hotmail.com`}
+	e.Subject = `Go Email`
+	e.Text = []byte(`testi2222222ng email from my linux with go`)
+	err := e.Send(fmt.Sprintf("%s:%d", m.Host, m.Port), smtp.CRAMMD5Auth(m.User, m.Pass))
+	if err != nil {
+		fmt.Println(err)
+		return c.Status(500).JSON(err)
+	}
+	fmt.Println("Email Sent Successfully!")
+
+	return c.Status(200).JSON("listo")
+
+}
+
 func ShowNotification(c *fiber.Ctx) error {
 	noty := models.Notification{}
 	id := c.Params("id")
@@ -92,7 +124,7 @@ func NotificationSeeder(c *fiber.Ctx) error {
 		noty.UserID = rand.Intn(300)
 		noty.UserIdFrom = rand.Intn(300)
 		noty.Readed = readed
-		noty.Content = fakeAction[rand.Intn(len(fakeAction))]
+		noty.Content = randomContent()
 		noty.NotificationType = rand.Intn(5)
 		noty.ExtraData = extra_data
 		noty.Channel = channels[rand.Intn(len(channels))]
