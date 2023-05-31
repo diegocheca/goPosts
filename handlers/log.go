@@ -18,19 +18,24 @@ import (
 	"time"
 )
 
-var listOfControllers = []string{"Blog", "Route", "Place", "State", "Comment", "Like", "User", "Path", "TravelGuisde", "Notifications", "Logs"}
-var listOfFunctions = []string{"Index", "Edit", "Update", "Show", "ShowAll", "Destroy"}
-var listOfResults = []string{"success", "error", "500", "404", "501", "402"}
-var listOfBrowser = []string{"Google Chrome", "Mozilla Firefox", "Opera", "Apple Safari", "Microsoft Edge", "Netscape", ""}
-var listOfOs = []string{"Windows", "Linux", "Apple", "IOS", "Android", ""}
-var listOfApp = []string{"Mobile v1.1", "Mobile v1.2", "Mobile v1.3", "Mobile v2.0", "Mobile v2.1", "Mobile v3.0", "Web"}
-var listOfTable = []string{"User", "Profile", "Blogs", "Comments", "Likes", "Images", "Activities", "Routes", "States", "Places", "TravelGuides", "Paths", "Logs", "Emails", "Notifications", "Monitoring"}
-var listOfMicros = []string{"Blogs", "Gateway", "Authorization", "Routes", "GO", "ELK", "Jenkins", "GitLab", "MailHog", "Redis", "Postgres", "MySql"}
-
 const charset = "abcdefghijklmnopqrstuvwxyz" + " " + "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
 
+/*
+The logHandler handler is responsible for performing CRUD operations on logs in a social media system.
+It provides methods for creating, reading, updating, and deleting logs. The handler also provides methods for filtering
+logs by user, type, and status.
+The logHandler handler uses the log package to write logs to a file.
+The logHandler handler uses the context package to pass information about the current request to the LogService.
+The logHandler handler uses the errors package to handle errors that occur when performing CRUD operations on logs.
+
+createLog(): This method creates a new log.
+readLogs(): This method returns all of the logs for a given user.
+updateLog(): This method updates an existing log.
+deleteLog(): This method deletes a log.
+filterLogs(): This method returns a filtered list of logs.
+*/
 func CreateLog(c *fiber.Ctx) error {
 	log := new(models.Log)
 	if err := c.BodyParser(log); err != nil {
