@@ -7,7 +7,7 @@ import (
 	"github.com/valyala/fasthttp"
 
 	//"github.com/slack-go/slack"
-
+	"net/url"
 	"bytes"
 	"encoding/json"
 	"fmt"
@@ -186,7 +186,33 @@ func SendToTelegram(c *fiber.Ctx) error {
 	req := c.Request()
 	res := c.Response()
 	//os.Getenv("TELEGRAM_API")
-	req.SetRequestURI("https://api.telegram.org/bot" + os.Getenv("TELEGRAM_API") + "/sendMessage?chat_id=1485456302&text=Hello%20Bro%20Im%20gofer22")
+	type message struct{
+		Mensaje string `json: "mensaje"`
+	}
+	my_message := new(message)
+    if err := c.BodyParser(my_message); err != nil {
+        return c.Status(500).JSON(fiber.Map{"status": "error", "message": "Could get the telegram url for make the request", "data": err.Error})
+    }
+
+
+	baseUrl, err := url.Parse(os.Getenv("TELEGRAM_URL")+ os.Getenv("TELEGRAM_API"))
+	if err != nil {
+		return c.Status(500).JSON(fiber.Map{"status": "error", "message": "Could get the telegram url for make the request", "data": err.Error})
+	
+	}
+
+	// Add a Path Segment (Path segment is automatically escaped)
+	baseUrl.Path += "/sendMessage"
+
+	// Prepare Query Parameters
+	params := url.Values{}
+	params.Add("chat_id", os.Getenv("TELEGRAM_CHAT_ID"))
+	params.Add("text", my_message.Mensaje)
+
+	// Add Query Parameters to the URL
+	baseUrl.RawQuery = params.Encode() // Escape Query Parameters
+
+	req.SetRequestURI(baseUrl.String())
 	return client.Do(req, res)
 
 }

@@ -84,7 +84,7 @@ func SaveAndSendEmail(c *fiber.Ctx) error {
 		Pass string
 	}{
 
-		Host: os.Getenv("SERVER_IP"), // resolved to 127.0.0.1 in /etc/hosts
+		Host: os.Getenv("SERVER_EMAIL_IP"), // resolved to 127.0.0.1 in /etc/hosts
 		Port: port,
 		User: ``,
 		Pass: ``,
