@@ -69,3 +69,15 @@ type Log struct {
 	Description string `json:"description" gorm:"text;default:null`
 	Time        string `json:"time" gorm:"text;not null`
 }
+
+type Emails struct {
+	gorm.Model
+	UserID        int    `json:"user_id" gorm:"number;default:null`
+	EmailTo       string `json:"email_to" gorm:"text;not null;default:'dddd'`
+	EmailFrom     string `json:"email_from" gorm:"text;default:null`
+	Enviornment   string `json:"enviornment" gorm:"text;;default:null`
+	Subject 	  string `json:"suject" gorm:"text;default:null`
+	Body          string `json:"body" gorm:"text;default:null`
+	Result        string `json:"result" gorm:"text;default:email`
+	Time		  string `json:"time" gorm:"text;not null`
+}
