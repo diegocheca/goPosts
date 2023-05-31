@@ -49,11 +49,15 @@ func setupRoutes(app *fiber.App) {
 	app.Post("/log", handlers.CreateLog)
 	app.Get("/log/show-all", handlers.ShowAllLogs)
 	app.Get("/log/show-all-ndjson", handlers.ShowAllLogsNDJson)
-
 	app.Get("/log/seeder", handlers.LogSeeder)
 	app.Get("/log/:id", handlers.ShowLog)
 	app.Get("/log-telegram", handlers.SendToTelegram)
 
 	app.Get("/elk", handlers.CreateELKPost)
+
+	app.Get("/emails", handlers.ShowAllEmails)
+	app.Post("/emails", handlers.CreateEmail)
+	app.Get("/emails/:id", handlers.ShowEmail)
+	app.Get("/emails/seeder", handlers.EmailSeeder)
 
 }

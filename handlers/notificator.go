@@ -60,16 +60,16 @@ func SendEmail(c *fiber.Ctx) error {
 		User string
 		Pass string
 	}{
-		Host: `192.168.1.122`, // resolved to 127.0.0.1 in /etc/hosts
+		Host: `192.168.1.120`, // resolved to 127.0.0.1 in /etc/hosts
 		Port: 1025,
 		User: ``,
 		Pass: ``,
 	}
 	e := email.NewEmail()
-	e.From = `test@local.test`
-	e.To = []string{`test@local.test`}
-	e.Subject = `test mail`
-	e.Text = []byte(`testi2222222ng email from my linux`)
+	e.From = `notifications@degustur.com`
+	e.To = []string{`diegochecarelli@hotmail.com`}
+	e.Subject = `Go Email`
+	e.Text = []byte(`testi2222222ng email from my linux with go`)
 	err := e.Send(fmt.Sprintf("%s:%d", m.Host, m.Port), smtp.CRAMMD5Auth(m.User, m.Pass))
 	if err != nil {
 		fmt.Println(err)
