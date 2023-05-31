@@ -14,6 +14,15 @@ import (
 	"github.com/jordan-wright/email"
 )
 
+/*
+This notificactionController controller is responsible for performing CRUD operations on notifications in a social media system.
+It provides methods for creating, reading, updating, and deleting notifications. The controller also provides methods for filtering notifications by user, type, and status.
+createNotification(): This method creates a new notification.
+readNotifications(): This method returns all of the notifications for a given user.
+updateNotification(): This method updates an existing notification.
+deleteNotification(): This method deletes a notification.
+filterNotifications(): This method returns a filtered list of notifications.
+*/
 func WriteNotification(c *fiber.Ctx, message string) error {
 	// abrir el archivo webserver.log para escritura
 	f, err := os.OpenFile("webserver.log", os.O_APPEND|os.O_CREATE|os.O_RDWR, 0666)
