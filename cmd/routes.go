@@ -57,7 +57,7 @@ func setupRoutes(app *fiber.App) {
 	app.Get("/emails/:id", handlers.ShowEmail)
 	app.Get("/email-seeder", handlers.EmailSeeder)
 	app.Post("/emails", handlers.SaveAndSendEmail)
-	app.Get("/elk", handlers.CreateELKPost)
+	app.Post("/elk", handlers.CreateELKPost)
 
 	
 
