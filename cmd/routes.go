@@ -20,26 +20,6 @@ func setupRoutes(app *fiber.App) {
 	// Delete fact
 	app.Delete("/fact/:id", handlers.DeleteFact)
 
-	//POSTS
-	app.Get("/posts", handlers.ListPosts)
-	//app.Get("/post/new", handlers.NewPostView)
-	app.Post("/post", handlers.CreatePost)
-	app.Get("/post/:id", handlers.ShowPost)
-	//app.Get("/post/:id/edit", handlers.EditPost)
-	app.Patch("/post/:id", handlers.UpdatePost)
-	app.Delete("/post/:id", handlers.DeletePost)
-	app.Post("/post/seeder", handlers.PostSeeder)
-
-	//Comments
-	app.Get("/comments", handlers.ListComments)
-	//app.Get("/post/new", handlers.NewPostView)
-	app.Post("/comment", handlers.CreateComment)
-	app.Get("/comment/:id", handlers.ShowComment)
-	//app.Get("/comment/:id/edit", handlers.EditComment)
-	app.Patch("/comment/:id", handlers.UpdateComment)
-	app.Delete("/comment/:id", handlers.DeleteComment)
-	app.Post("/comment/seeder", handlers.CommentSeeder)
-
 	app.Get("/sendingemail", handlers.SendEmail)
 	app.Get("/notification/seeder", handlers.NotificationSeeder)
 	app.Get("/notification/:id", handlers.ShowNotification)
@@ -58,7 +38,5 @@ func setupRoutes(app *fiber.App) {
 	app.Get("/email-seeder", handlers.EmailSeeder)
 	app.Post("/emails", handlers.SaveAndSendEmail)
 	app.Post("/elk", handlers.CreateELKPost)
-
-	
 
 }
