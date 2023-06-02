@@ -61,7 +61,7 @@ func CreateELKPost(c *fiber.Ctx) error {
 	
 	defer f.Close()
 	
-	return c.Status(200).JSON("log escrito correctamente")
+	return c.Status(200).JSON("\"status\":\"success\",\"message\":\"Log written successfully\"")
 
 
 	
