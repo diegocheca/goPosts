@@ -5,7 +5,6 @@ import (
 	"github.com/diegocheca/goPosts.git/models"
 	"github.com/gofiber/fiber/v2"
 	"github.com/valyala/fasthttp"
-
 	//"github.com/slack-go/slack"
 	"net/url"
 	"bytes"

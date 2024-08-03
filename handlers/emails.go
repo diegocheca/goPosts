@@ -2,16 +2,13 @@ package handlers
 
 import (
 	"math/rand"
-
 	"github.com/diegocheca/goPosts.git/database"
 	"github.com/diegocheca/goPosts.git/models"
 	"github.com/gofiber/fiber/v2"
-
 	"fmt"
 	"net/smtp"
 	"os"
 	"strconv"
-
 	"github.com/jordan-wright/email"
 )
 

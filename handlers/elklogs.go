@@ -3,13 +3,10 @@ package handlers
 import (
 	"fmt"
 	"os"
-
 	validation "github.com/go-ozzo/ozzo-validation"
-
 	"github.com/diegocheca/goPosts.git/database"
 	"github.com/diegocheca/goPosts.git/models"
 	"github.com/gofiber/fiber/v2"
-
 	logFile "github.com/sirupsen/logrus"
 )
 
